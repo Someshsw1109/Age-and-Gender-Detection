@@ -2,26 +2,31 @@
 import cv2
 import numpy as np
 
-# https://raw.githubusercontent.com/opencv/opencv/master/samples/dnn/face_detector/deploy.prototxt
+
 FACE_PROTO = "weights/deploy.prototxt.txt"
-# https://raw.githubusercontent.com/opencv/opencv_3rdparty/dnn_samples_face_detector_20180205_fp16/res10_300x300_ssd_iter_140000_fp16.caffemodel
+
 FACE_MODEL = "weights/res10_300x300_ssd_iter_140000_fp16.caffemodel"
-# The gender model architecture
-# https://drive.google.com/open?id=1W_moLzMlGiELyPxWiYQJ9KFaXroQ_NFQ
+
 GENDER_MODEL = 'weights/deploy_gender.prototxt'
-# The gender model pre-trained weights
-# https://drive.google.com/open?id=1AW3WduLk1haTVAxHOkVS_BEzel1WXQHP
+
 GENDER_PROTO = 'weights/gender_net.caffemodel'
+
 # Each Caffe Model impose the shape of the input image also image preprocessing is required like mean
+
 # substraction to eliminate the effect of illunination changes
+
 MODEL_MEAN_VALUES = (78.4263377603, 87.7689143744, 114.895847746)
+
 # Represent the gender classes
+
 GENDER_LIST = ['Male', 'Female']
+
 # The model architecture
-# download from: https://drive.google.com/open?id=1kiusFljZc9QfcIYdU2s7xrtWHTraHwmW
+
 AGE_MODEL = 'weights/deploy_age.prototxt'
+
 # The model pre-trained weights
-# download from: https://drive.google.com/open?id=1kWv0AjxGSN0g31OeJa02eBGM0R_jcjIl
+
 AGE_PROTO = 'weights/age_net.caffemodel'
 # Represent the 8 age classes of this CNN probability layer
 AGE_INTERVALS = ['(0, 2)', '(4, 6)', '(8, 12)', '(15, 20)',
@@ -76,7 +81,6 @@ def display_img(title, img):
     cv2.destroyAllWindows()
 
 
-# from: https://stackoverflow.com/questions/44650888/resize-an-image-without-distortion-opencv
 def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
     # initialize the dimensions of the image to be resized and
     # grab the image size
