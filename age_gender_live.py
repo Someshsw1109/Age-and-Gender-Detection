@@ -2,14 +2,11 @@
 import cv2
 import numpy as np
 
-# The gender model architecture
-# https://drive.google.com/open?id=1W_moLzMlGiELyPxWiYQJ9KFaXroQ_NFQ
+
 GENDER_MODEL = 'weights/deploy_gender.prototxt'
-# The gender model pre-trained weights
-# https://drive.google.com/open?id=1AW3WduLk1haTVAxHOkVS_BEzel1WXQHP
+
 GENDER_PROTO = 'weights/gender_net.caffemodel'
-# Each Caffe Model impose the shape of the input image also image preprocessing is required like mean
-# substraction to eliminate the effect of illunination changes
+
 MODEL_MEAN_VALUES = (78.4263377603, 87.7689143744, 114.895847746)
 # Represent the gender classes
 GENDER_LIST = ['Male', 'Female']
@@ -66,7 +63,7 @@ def get_faces(frame, confidence_threshold=0.5):
     return faces
 
 
-# from: https://stackoverflow.com/questions/44650888/resize-an-image-without-distortion-opencv
+
 def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
     # initialize the dimensions of the image to be resized and
     # grab the image size
